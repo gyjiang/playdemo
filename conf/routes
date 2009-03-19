@@ -1,0 +1,21 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+GET			/							Application.index
+
+GET			/login					    Application.login
+
+GET			/signup					    Application.signup
+
+# Import the default CRUD routes
+GET			/admin						module:crud
+
+# Map static resources from the /app/public folder to the /public path
+GET			/public						staticDir:public
+
+# Catch all
+*			/{controller}/{action}		{controller}.{action}
+
+# Import CRUD routes
+*      /admin              module:crud

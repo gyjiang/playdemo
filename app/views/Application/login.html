@@ -1,0 +1,30 @@
+#{extends 'main.html' /}
+
+<h1 id="title">Login</h1>
+<p class="light"></p>
+
+<form id="login" action="@{Application.auth}" method="POST" accept-charset="utf-8">
+	<p>
+		<label>Email</label>
+		<input type="text" name="email" value="${flash.email}" id="email" />
+	</p>
+	<p>
+		<label>Password</label>
+		<input type="password" name="password" value="" id="password" />
+	</p>
+	<p class="buttons">
+		<input type="submit" value="Login">
+	</p>
+</form>
+<h1>No Account? Please <a class="action" href="@{Application.signup}">Signup</a></h1>
+#{if flash.error}
+	<p color="red">
+		${flash.error}
+	</p>
+#{/if}
+
+#{if flash.success}
+	<p color="red">
+		${flash.success}
+	</p>
+#{/if}

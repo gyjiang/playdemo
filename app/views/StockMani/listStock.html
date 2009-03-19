@@ -1,0 +1,19 @@
+#{extends 'main.html' /}
+<p>All Available Stock List: </p>
+<p>Total Stock Count: ${stocks.size()}</p>
+<table>
+  <tr align="left">
+     <td width="20%">Stock Code</td>
+     <td width="20%">Stock Name</td>
+     <td width="20%">Price</td>
+  </tr>
+#{list items:stocks, as:'stock'}
+  <tr align="left">
+    <td width="20%">${stock.code}</td>
+    <td width="20%">${stock.name}</td>
+    <td width="20%">${stock.price}</td>
+  </tr>
+#{/list}
+</table>
+<a class="action" href="@{StockMani.addStock}">Add Stock</a>
+<a class="action" href="@{Application.index}">Back to DashBoard</a>

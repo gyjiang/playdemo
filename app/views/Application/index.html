@@ -1,0 +1,16 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+#{if session.user}
+	Welcome ${session.username};<a class="action" href="@{Application.logout}">Logout</a>
+
+<h1><a class="action" href="@{Buy.list}">User Stock List</a></h1>
+<h1><a class="action" href="@{StockMani.listStock}">Available Stock List</a></h1>
+
+#{/if}
+
+#{if !session.user}
+
+<h1><a class="action" href="@{Application.login}">Login</a></h1>
+<h1><a class="action" href="@{Application.signup}">Signup</a></h1>
+#{/if}

@@ -1,0 +1,37 @@
+#{extends 'main.html' /}
+
+<h1 id="title">Signup</h1>
+<p class="light">
+	Please Input Your Account Information
+</p>
+
+<form id="signup" action="@{Application.register}" method="POST" accept-charset="utf-8">
+	<p>
+		<label>Email</label>
+		<input type="text" name="email" value="${flash.email}" id="email" />
+		<span class="error">#{error 'email' /}</span>
+	</p>
+	<p>
+		<label>Display name</label>
+		<input type="text" name="name" value="${flash.name}" id="name" />
+		<span class="error">#{error 'name' /}
+	</p>
+	<p>
+		<label>Password</label>
+		<div>
+			<input type="password" name="password" value="${flash.password}" id="password" /> <span class="error">#{error 'password' /}</span>
+		</div>
+		<p class="light">
+			Password must be at least 6 characters.
+		</p>
+		
+		<label>Repeat Password</label>
+		<div>
+			<input type="password" name="password2" value="${flash.password2}" id="password2" /> <span class="error">#{error 'password2' /}</span>
+		</div>
+	</p>
+	<p class="buttons">
+		<input type="submit" value="Signup">
+	</p>	
+</form>
+<h1>Alread have a Account? Please <a class="action" href="@{Application.login}">Login</a></h1>

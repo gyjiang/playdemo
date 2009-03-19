@@ -1,0 +1,21 @@
+#{extends 'main.html' /}
+<p>User Buyed Stock List: </p>
+<p>Total Stock Count: ${buys.size()}</p>
+<p>
+
+<table cellpadding="5" cellspacing="0">
+  <tr  valign="top">
+     <td width="20%">Stock Code</td>
+     <td width="20%">Amount</td>
+     <td width="20%">Price</td>
+  </tr>
+#{list items:buys, as:'buy'}
+  <tr valign="top">
+    <td width="20%">${buy.stock.code}</td>
+    <td width="20%">${buy.amount}</td>
+    <td width="20%">${buy.buyPrice}</td>
+  </tr>
+#{/list}
+</table>
+<a class="action" href="@{Buy.buy}">Buy Stock</a>
+<a class="action" href="@{Application.index}">Back to DashBoard</a>

@@ -1,0 +1,34 @@
+#{extends 'main.html' /}
+
+<h1 id="title">Add Stock Info</h1>
+<p class="light">
+	Please Input Stock Info
+</p>
+
+#{if flash.error}
+	<p color="red">
+		${flash.error}
+	</p>
+#{/if}
+
+<form id="stock" action="@{StockMani.saveStock}" method="POST" accept-charset="utf-8">
+	<p>
+		<label>Stock Code</label>
+		<input type="text" name="code" value="${flash.code}" id="code" />
+		<span class="error">#{error 'code' /}</span>
+	</p>
+	<p>
+		<label>Stock Name</label>
+		<input type="text" name="name" value="${flash.name}" id="name" />
+		<span class="error">#{error 'name' /}</span>
+	</p>
+	<p>
+		<label>Price</label>
+		<input type="text" name="price" value="${flash.price}" id="price" />
+		<span class="error">#{error 'price' /}
+	</p>
+	<p class="buttons">
+		<input type="submit" value="Add">
+	</p>	
+</form>
+<a class="action" href="@{StockMani.listStock}">Back To Stock List</a>
