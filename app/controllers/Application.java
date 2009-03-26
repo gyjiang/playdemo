@@ -9,19 +9,15 @@ import play.mvc.Before;
 import play.mvc.Controller;
 
 public class Application extends Controller {
-
-	@Before(unless="index,signup,register,login,auth, logout")
+	
+	@Before(unless={"index", "login", "signup", "register", "auth", "logout"})
 	static void checkLogin() {
 		if(session.get("user") == null) {
 			flash.error("Please Login!");
 			Application.login();
 		}
 	}
-	
-	/**
-	 * Change render("welcome.html"); to render(); and it will display the
-	 * /app/views/Application/index.html template
-	 */
+
 	public static void index() {
 		render();
 	}
