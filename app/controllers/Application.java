@@ -1,6 +1,7 @@
 package controllers;
 
 import models.User;
+import play.Logger;
 import play.data.validation.Email;
 import play.data.validation.Equals;
 import play.data.validation.MinSize;
@@ -14,6 +15,7 @@ public class Application extends Controller {
 	static void checkLogin() {
 		if(session.get("user") == null) {
 			flash.error("Please Login!");
+			Logger.debug("forward to Login");
 			Application.login();
 		}
 	}
