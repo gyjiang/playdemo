@@ -65,5 +65,17 @@ public class Application extends Controller {
 		session.clear();
 		login();
 	}
+	
+	public static void chart() {
+		render();
+	}
+
+	public static void jschart() {
+		render();
+	}
+
+	public static void fusionchart() {
+		render();
+	}
 
 }
